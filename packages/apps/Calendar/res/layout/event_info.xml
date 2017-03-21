@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/event_info_loading_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:indeterminate="true" />
+
+        <TextView
+            style="@style/TextAppearance.EditEvent_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dip"
+            android:text="@string/loading" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/event_info_error_msg"
+        style="@style/TextAppearance.EditEvent_Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/event_not_found"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/event_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--  Container for the event's headline
+        Name, Date, Time & Location
+        -->
+        <include layout="@layout/event_info_headline" />
+
+        <ScrollView
+            android:id="@+id/event_info_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:paddingBottom="10dip"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Calendar Owner -->
+                <LinearLayout
+                    android:id="@+id/calendar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/calendar_name"
+                        style="@style/TextAppearance.EditEvent_Value"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_event_calendar"
+                        android:drawablePadding="8dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textIsSelectable="true" />
+                </LinearLayout>
+
+                <!-- Organizer -->
+                <LinearLayout
+                    android:id="@+id/organizer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/organizer"
+                        style="@style/TextAppearance.EditEvent_Value"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_event_organizer"
+                        android:drawablePadding="8dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textIsSelectable="true" />
+                </LinearLayout>
+
+                <!-- WHERE -->
+
+                <TextView
+                    android:id="@+id/where"
+                    style="@style/TextAppearance.EditEvent_Value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableLeft="@drawable/ic_event_location"
+                    android:drawablePadding="8dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:paddingTop="10dp"
+                    android:singleLine="false"
+                    android:textIsSelectable="true" />
+
+                <!-- DESCRIPTION -->
+                <include
+                    android:id="@+id/description"
+                    layout="@layout/expandable_textview" />
+
+                <!-- RESPONSE -->
+                <LinearLayout
+                    android:id="@+id/response_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/response_label"
+                        style="@style/TextAppearance.EditEvent_Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_event_response"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/view_event_response_label" />
+
+                    <RadioGroup
+                        android:id="@+id/response_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="52dip"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/response_yes"
+                            style="@style/TextAppearance.EditEvent_Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/response_yes" />
+
+                        <RadioButton
+                            android:id="@+id/response_maybe"
+                            style="@style/TextAppearance.EditEvent_Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/response_maybe" />
+
+                        <RadioButton
+                            android:id="@+id/response_no"
+                            style="@style/TextAppearance.EditEvent_Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/response_no" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <!-- EMAIL GUESTS -->
+                <LinearLayout
+                    android:id="@+id/email_attendees_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/email_attendees_button"
+                        style="@style/TextAppearance.EditEvent_Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableLeft="@drawable/ic_event_email"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/email_guests_label" />
+                </LinearLayout>
+
+                <!-- LAUNCH CUSTOM APP -->
+                <LinearLayout
+                    android:id="@+id/launch_custom_app_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/launch_custom_app_button"
+                        style="@style/TextAppearance.EditEvent_Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical" />
+                </LinearLayout>
+
+                <!-- GUEST LIST -->
+                <com.android.calendar.event.AttendeesView
+                    android:id="@+id/long_attendee_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:visibility="gone" />
+
+                <!-- REMINDERS -->
+
+                <TextView
+                    android:id="@+id/reminder_add"
+                    style="@style/TextAppearance.EditEvent_Value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:contentDescription="@string/accessibility_add_reminder"
+                    android:drawableLeft="@drawable/ic_event_reminder"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="10dp"
+                    android:text="@string/reminders_label" />
+
+                <LinearLayout
+                    android:id="@+id/reminder_items_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>
+
