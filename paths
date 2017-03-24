@@ -8,12 +8,14 @@ packages/apps/Gallery2
 packages/apps/Launcher3
 packages/apps/Messaging
 packages/apps/MonthCalendarWidget
+packages/apps/MusicFX
 packages/apps/OmniClock
 packages/apps/OmniGears
 packages/apps/OmniStyle
 packages/apps/OmniSwitch
 packages/apps/Phone
 packages/apps/PhoneCommon
+packages/apps/Phonograph/app/src/main
 packages/apps/Settings
 packages/apps/SnapdragonCamera
 packages/apps/SoundRecorder
