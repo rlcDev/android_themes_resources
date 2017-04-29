@@ -74,8 +74,9 @@
     <string name="button_home_answers_call_title">Button answers call</string>
     <string name="button_home_answers_call_summary">Pressing the home button will answer incoming call</string>
     <string name="button_other_title">Other</string>
-    <string name="keys_action_app_switch_short">Default</string>
+    <string name="keys_action_app_switch_card">AOSP (stack)</string>
     <string name="keys_action_omniswitch_short">OmniSwitch</string>
+    <string name="keys_action_app_switch_grid">AOSP (grid)</string>
     <string name="button_back_kill_enable_title">Kill app back button</string>
     <string name="button_back_kill_enable_summary">Kill the foreground app by long-pressing the back button</string>
     <string name="button_back_kill_timeout_title">Kill app timeout</string>
@@ -415,6 +416,11 @@
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
+    <!-- OMS -->
+    <string name="theming_title">Theming</string>
+    <string name="oms_app_title">Substratum theme engine</string>
+    <string name="oms_app_summary">Start Substratum experience</string>
+
     <string name="status_bar_ime_notification_title">Show IME notification</string>
     <string name="status_bar_ime_notification_summary">If navigation bar is not available</string>
     <string name="navigation_bar_ime_button_title">Show IME navigation bar button</string>
@@ -434,7 +440,7 @@
     <string name="omni_notification_light_settings_summary">Customization of notification led lights for applications</string>
     <string name="omni_battery_light_settings_summary">Customization of notification led lights for battery</string>
 
-    <string name="night_mode_title">Theme</string>
+    <string name="night_mode_title">Light/Dark theme</string>
     <string name="night_mode_summary">%s</string>
     <string name="night_mode_no">Light</string>
     <string name="night_mode_yes">Dark</string>
@@ -485,6 +491,10 @@
     <string name="system_category">System</string>
     <string name="custom_wall_browse_title">Omni wallpapers</string>
     <string name="custom_wall_browse_summary">Browse and set Omni branded wallpapers</string>
+    <string name="show_cpu_title">Show CPU info</string>
+    <string name="show_cpu_summary">Screen overlay showing current CPU info</string>
+    <string name="headset_plugged_notification_title">Headset notification</string>
+    <string name="headset_plugged_notification_summary">Show notification when connecting wired headsets</string>
 
     <!-- Display : Rotation -->
     <string name="category_display">Display</string>
