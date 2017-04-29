@@ -22,6 +22,7 @@ packages/apps/SnapdragonCamera
 packages/apps/SoundRecorder
 packages/apps/Stk
 packages/apps/WallpaperPicker
+packages/services/OmniJaws
 
 frameworks/base/packages/DocumentsUI
 frameworks/base/packages/EasterEgg
